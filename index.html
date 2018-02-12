@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <meta charset="UTF-8"> 
   <title>SmartForm</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
@@ -13,7 +14,7 @@
     <div class="jumbotron" id="welcome">
       <h1>Welcome to SmartForm!</h1>
       <p>Front-end Technology Survey</p>
-      <p><button class="btn btn-primary btn-lg">Start Survey</button></p>
+      <p><button class="btn btn-primary btn-lg" id="start">Start Survey</button></p>
     </div>
     <!-- Welcome END -->
     <!-- Question 1 -->
@@ -27,7 +28,7 @@
           <label for="email">Email address</label>
           <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
-        <button class="btn btn-success">Next</button>
+        <button class="btn btn-success" id="q1next">Next</button>
       </div>
     </div>
     <!-- Question 1 END -->
