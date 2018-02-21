@@ -30,14 +30,27 @@ $("#name").change(function(event){
   //console.log($("#name").val());
 });
 
+function validateEmail(email){
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+
 $("#q1next").click(function(){
-  if($('#name').val() && $('#email').val()){
-    userData.name = $('#name').val();
+  var isValid = false;
+  var isEmpty = true;
+  if($('#name').val() && $('#email').val()) isEmpty = false;
+  if(!isEmpty){
+    userData.name = $('#name').val().trim();
     userData.email = $('#email').val();
-    localStorage.setItem('userData', JSON.stringify(userData));
-    console.log(userData);
-    $("#q2").show();
-    $("#q1").hide();
+    var emailIsValid = validateEmail(userData.email);
+    if(emailIsValid){
+      localStorage.setItem('userData', JSON.stringify(userData));
+      console.log(userData);
+      $("#q2").show();
+      $("#q1").hide();
+    }else{
+      alert("Invalid Email");
+    }
   }else {
     alert("Please enter name and email");
   }
@@ -47,6 +60,16 @@ $("#q2HTML").click(function(){
   $("#q2").hide();
   $("#q2a").show();
 });
+
+$("#q2anext").click(function(){
+  if($("#html1").val().checked)
+  console.log("rhis");
+
+  var status = $("#html1").checked;
+  userData.html.likes.push($("#html1").innerText);
+  console.log(status);
+});
+
 $("#q2CSS").click(function(){
   $("#q2").hide();
   $("#q2b").show();
@@ -55,8 +78,15 @@ $("#q2JS").click(function(){
   $("#q2c").show();
   $("#q2").hide();
 });
-$("#q2back").click(function(){
+$("#q2aback").click(function(){
   $("#q2a").hide();
   $("#q2").show();
-
+});
+$("#q2bback").click(function(){
+  $("#q2b").hide();
+  $("#q2").show();
+});
+$("#q2cback").click(function(){
+  $("#q2c").hide();
+  $("#q2").show();
 })
