@@ -19,7 +19,7 @@ if(localStorage.getItem('userData')){
   localStorage.setItem('userData', JSON.stringify(userData));
 }
 $("#start").click(function(){
-  $("#welcome").hide();
+  $("#welcome").hide(500);
   $("#q1").show();
   userData.currentQuestion = '#q1';
   localStorage.setItem('userData', JSON.stringify(userData));
@@ -43,7 +43,7 @@ $("#q1next").click(function(){
       console.log(userData);
       $("#q2").show();
       userData.currentQuestion = '#q2';
-      $("#q1").hide();
+      $("#q1").hide(500);
 
     }else{
       alert("Invalid Email");
@@ -52,18 +52,23 @@ $("#q1next").click(function(){
     alert("Please enter name and email");
   }
   userData.currentQuestion = '#q2';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
+
+
 $("#q2HTML").click(function(){
-  $("#q2").hide();
+  $("#q2").hide(500);
   $("#q2a").show();
   userData.currentQuestion = '#q2a';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2aback").click(function(){
-  $("#q2a").hide();
-  $("#q2").show();
+  $("#q2a").hide(500);
+  $("#q2").show(500);
   userData.currentQuestion = '#q2';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2anext").click(function(){
@@ -77,12 +82,12 @@ $("#q2anext").click(function(){
     userData.html.dislikes.push($(this).parent().text().trim());
   });
   if ((userData.html.likes.length != 0 || userData.html.dislikes !=0) && (userData.css.likes.length !=0 || userData.css.dislikes.length !=0) && (userData.js.likes.length !=0 || userData.js.dislikes.length !=0)) {
-    $("#q2a").hide();
-    $("#q3").show();
+    $("#q2a").hide(500);
+    $("#q3").show(500);
     userData.currentQuestion = '#q3';
   } else {
-    $("#q2a").hide();
-    $("#q2b").show();
+    $("#q2a").hide(500);
+    $("#q2b").show(500);
     userData.currentQuestion = '#q2b';
   }
   localStorage.setItem('userData', JSON.stringify(userData));
@@ -90,15 +95,17 @@ $("#q2anext").click(function(){
 });
 
 $("#q2CSS").click(function(){
-  $("#q2").hide();
-  $("#q2b").show();
+  $("#q2").hide(500);
+  $("#q2b").show(500);
   userData.currentQuestion = '#q2b';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2bback").click(function(){
-  $("#q2b").hide();
-  $("#q2").show();
+  $("#q2b").hide(500);
+  $("#q2").show(500);
   userData.currentQuestion = '#q2';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2bnext").click(function(){
@@ -112,30 +119,33 @@ $("#q2bnext").click(function(){
     userData.css.dislikes.push($(this).parent().text().trim());
   });
 
-  localStorage.setItem('userData', JSON.stringify(userData));
+  //localStorage.setItem('userData', JSON.stringify(userData));
   console.log(userData);
 
   if ((userData.html.likes.length != 0 || userData.html.dislikes !=0) && (userData.css.likes.length !=0 || userData.css.dislikes.length !=0) && (userData.js.likes.length !=0 || userData.js.dislikes.length !=0)) {
-    $("#q2b").hide();
-    $("#q3").show();
+    $("#q2b").hide(500);
+    $("#q3").show(500);
     userData.currentQuestion = '#q3';
   }else{
-    $("#q2b").hide();
-    $("#q2c").show();
+    $("#q2b").hide(500);
+    $("#q2c").show(500);
     userData.currentQuestion = '#q2c';
   }
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2JS").click(function(){
-  $("#q2c").show();
-  $("#q2").hide();
+  $("#q2c").show(500);
+  $("#q2").hide(500);
   userData.currentQuestion = '#q2c';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2cback").click(function(){
-  $("#q2c").hide();
-  $("#q2").show();
+  $("#q2c").hide(500);
+  $("#q2").show(500);
   userData.currentQuestion = '#q2';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q2cnext").click(function(){
@@ -149,32 +159,34 @@ $("#q2cnext").click(function(){
     userData.js.dislikes.push($(this).parent().text().trim());
   });
 
-  localStorage.setItem('userData', JSON.stringify(userData));
+  //localStorage.setItem('userData', JSON.stringify(userData));
   console.log(userData);
 
   if ((userData.html.likes.length != 0 || userData.html.dislikes !=0) && (userData.css.likes.length !=0 || userData.css.dislikes.length !=0) && (userData.js.likes.length !=0 || userData.js.dislikes.length !=0)) {
-    $("#q2c").hide();
-    $("#q3").show();
+    $("#q2c").hide(500);
+    $("#q3").show(500);
     userData.currentQuestion = '#q3';
   }else{
-    $("#q2").show();
-    $("#q2c").hide();
+    $("#q2").show(500);
+    $("#q2c").hide(500);
     userData.currentQuestion = '#q2';
   }
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q3back").click(function(){
-  $("#q3").hide();
-  $("#q2").show();
+  $("#q3").hide(500);
+  $("#q2").show(500);
   userData.currentQuestion = '#q2';
+  localStorage.setItem('userData', JSON.stringify(userData));
 });
 
 $("#q3next").click(function(){
   userData.strength.html = $("input[name=inlineRadioOptions1]:checked").val();
   userData.strength.css = $("input[name=inlineRadioOptions2]:checked").val();
   userData.strength.js = $("input[name=inlineRadioOptions3]:checked").val();
+  userData.currentQuestion = '#thanks';
+  $("#q3").hide(500);
+  $("#thanks").show(500);
   localStorage.setItem('userData', JSON.stringify(userData));
-  userData.currentQuestion = '#q4';
-  $("#q3").hide();
-  $("#thanks").show();
 });
