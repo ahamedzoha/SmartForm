@@ -190,3 +190,43 @@ $("#q3next").click(function(){
   $("#thanks").show(500);
   localStorage.setItem('userData', JSON.stringify(userData));
 });
+
+$("#view-answers").click(function(){
+  $("#thanks").hide(500);
+  $("#answers").show(500);
+  for (var i = 0; i < userData.html.likes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.html.likes[i]);
+    $("#html-answers>.likes").append(text);
+    console.log(text);
+  }
+  for (var i = 0; i < userData.html.dislikes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.html.dislikes[i]);
+    $("#html-answers>.dislikes").append(text);
+  }
+  $("#html-answers>.strength").append(userData.strength.html);
+  for (var i = 0; i < userData.css.likes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.css.likes[i]);
+    $("#css-answers>.likes").append(text);
+  }
+  for (var i = 0; i < userData.css.dislikes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.css.dislikes[i]);
+    $("#css-answers>.dislikes").append(text);
+  }
+  $("#css-answers>.strength").append(userData.strength.css);
+  for (var i = 0; i < userData.js.likes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.js.likes[i]);
+    $("#js-answers>.likes").append(text);
+  }
+  for (var i = 0; i < userData.js.dislikes.length; i++) {
+    var text = $("<ul><li></li></ul>").text(userData.js.dislikes[i]);
+    $("#js-answers>.dislikes").append(text);
+  }
+  $("#js-answers>.strength").append(userData.strength.js);
+  userData.currentQuestion = "#answers";
+  localStorage.setItem('userData', JSON.stringify(userData));
+});
+
+$("#b2thanks").click(function(){
+  $("#answers").hide(500);
+  $("#thanks").show(500);
+})

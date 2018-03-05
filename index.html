@@ -257,13 +257,39 @@
     <div class="jumbotron question" id="thanks">
       <h1>Thank You!</h1>
       <p>Your Front-end Technology Survey answers were submitted successfully.</p>
-      <p><button class="btn btn-default btn-lg">View Answers</button> <button class="btn btn-danger">Delete Answers</button></p>
+      <p><button class="btn btn-default btn-lg" id="view-answers">View Answers</button> <button class="btn btn-danger" id="delete-answer">Delete Answers</button></p>
     </div>
     <!-- Thank you END-->
     <!-- Show answers in new view (div)
     -
     -
     -->
+    <div class="jumbotron" id="answers">
+      <h1>Your Answers</h1>
+      <hr>
+      <div id="html-answers">
+        <h2>HTML Answers</h2>
+        <p class="likes"><em>Likes</em></p>
+        <p class="dislikes"><em>Dislikes</em></p>
+        <p class="strength"><em>Strength: </em></p>
+        &nbsp
+      </div>
+      <div id="css-answers">
+        <h2>CSS Answers</h2>
+        <p class="likes"><em>Likes</em></p>
+        <p class="dislikes"><em>Dislikes</em></p>
+        <p class="strength"><em>Strength: </em></p>
+        &nbsp
+      </div>
+      <div id="js-answers">
+        <h2>JS Answers</h2>
+        <p class="likes"><em>Likes</em></p>
+        <p class="dislikes"><em>Dislikes</em></p>
+        <p class="strength"><em>Strength: </em></p>
+        &nbsp
+      </div>
+      <button class="btn btn-default btn-lg" id="b2thanks">Previous Page</button>
+    </div>
   </div>
 
   <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
