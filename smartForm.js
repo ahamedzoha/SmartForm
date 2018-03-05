@@ -191,6 +191,10 @@ $("#q3next").click(function(){
   localStorage.setItem('userData', JSON.stringify(userData));
 });
 
+$("#delete-answers").click(function() {
+  
+});
+
 $("#view-answers").click(function(){
   $("#thanks").hide(500);
   $("#answers").show(500);
