@@ -191,10 +191,6 @@ $("#q3next").click(function(){
   localStorage.setItem('userData', JSON.stringify(userData));
 });
 
-$("#delete-answers").click(function() {
-  
-});
-
 $("#view-answers").click(function(){
   $("#thanks").hide(500);
   $("#answers").show(500);
@@ -233,4 +229,21 @@ $("#view-answers").click(function(){
 $("#b2thanks").click(function(){
   $("#answers").hide(500);
   $("#thanks").show(500);
-})
+});
+
+$("#delete-answer").click(function() {
+  userData.js.likes.length = 0;
+  userData.js.dislikes.length = 0;
+  userData.css.likes.length = 0;
+  userData.css.dislikes.length = 0;
+  userData.html.likes.length = 0;
+  userData.html.dislikes.length = 0;
+  userData.strength.html="";
+  userData.strength.css="";
+  userData.strength.js="";
+
+  //localStorage.clear(); Not working for some reason
+  location.reload();
+  userData.currentQuestion = "#welcome";
+  localStorage.setItem('userData', JSON.stringify(userData));
+});
